@@ -6,7 +6,7 @@ import os
 class SpeechRecognition:
     """Gerencia captura de áudio e transcrição usando Vosk."""
 
-    def __init__(self, model_path="./model"):
+    def __init__(self, model_path="./speechRecognition/model"):
         vosk.SetLogLevel(-1)
         self.reconhecedor = sr.Recognizer()
         self.reconhecedor.pause_threshold = 1.0

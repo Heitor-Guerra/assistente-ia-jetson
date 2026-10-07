@@ -7,7 +7,7 @@ def main():
     system_prompt="Você é um assistente que responde de forma curta, clara e concisa. Não seja verboso. Em temas médicos, não invente informações"
     sr = SpeechRecognition()
     tts = TextToSpeech()
-    llm = LlamaCpp("/home/Heitor-Guerra/.cache/huggingface/hub/models--ggml-org--gemma-3-1b-it-GGUF/snapshots/f9c28bcd85737ffc5aef028638d3341d49869c27/gemma-3-1b-it-Q4_K_M.gguf", system_prompt=system_prompt)
+    llm = LlamaCpp("./llama/*.gguf", system_prompt=system_prompt)
 
     run(sr, tts, llm)
 

@@ -9,4 +9,5 @@ dependencies = [
     "requests>=2.32.4",
     "speechrecognition>=3.10.4",
     "vosk>=0.3.45",
+    "llama-cpp-python>=0.3.36",
 ]

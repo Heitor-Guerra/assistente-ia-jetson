@@ -9,7 +9,7 @@ from queue import Queue
 class TextToSpeech:
     """Gerencia síntese de voz usando Piper e reprodução de áudio."""
 
-    def __init__(self, piper_model="pt_BR-faber-medium", piper_path="./piper"):
+    def __init__(self, piper_model="pt_BR-faber-medium", piper_path="./tts"):
         self.piper_path = piper_path
         self.piper_model = piper_model
         self.audio_queue = Queue()
@@ -36,7 +36,7 @@ class TextToSpeech:
         try:
             process = subprocess.Popen(
                 [
-                    f"{self.piper_path}/piper",
+                    f"{self.piper_path}/piper/piper",
                     "--model", f"{self.piper_path}/{self.piper_model}.onnx",
                     "--output-file", temp_wav.name,
                 ],
