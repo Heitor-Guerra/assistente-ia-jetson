@@ -21,9 +21,13 @@ def run(sr: SpeechRecognition, tts: TextToSpeech, llm: LlamaCpp):
 
     try:
         while True:
-            # Captura entrada de voz
-            print("Você: ", end="", flush=True)
-            user_input = sr.listen()
+            choice = int(input("Escolha como quer perguntar:\n[1] - Voz\n[2] - Texto"))
+
+            if choice == 1:
+                # Captura entrada de voz
+                user_input = sr.listen()
+            else:
+                user_input = input("Você: ")
 
             if user_input is None or not user_input.strip():
                 continue
@@ -38,6 +42,7 @@ def run(sr: SpeechRecognition, tts: TextToSpeech, llm: LlamaCpp):
             llm.stream_llm_response(user_input, tts)
 
             tts.wait_until_idle()
+            print("-"*60)
 
     except KeyboardInterrupt:
         print("\n\nAté mais.")
