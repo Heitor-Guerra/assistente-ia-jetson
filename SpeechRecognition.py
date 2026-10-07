@@ -15,11 +15,13 @@ class SpeechRecognition:
     def calibrate(self, duration=2):
         """Calibra o microfone."""
 
-        print(f"Calibrando o microfone, fique em silêncio por {duration} segundos.")
-        self.reconhecedor.adjust_for_ambient_noise(
-            fonte,
-            duration=2
-        )
+        with sr.Microphone() as fonte:
+            os.system("clear")
+            print(f"Calibrando o microfone, fique em silêncio por {duration} segundos.")
+            self.reconhecedor.adjust_for_ambient_noise(
+                fonte,
+                duration=2
+            )
         print("Calibração concluída.\n")
 
 
@@ -27,6 +29,7 @@ class SpeechRecognition:
         """Captura áudio do microfone e retorna texto transcrito."""
         try:
           with sr.Microphone() as fonte:
+            os.system("clear")
             texto = ""
             print("Você: ", end="", flush=True)
             while texto.strip():
